@@ -57,7 +57,7 @@ class DashboardArticleController extends Controller
             'title' => 'required|max:255',
             'slug' => 'required|unique:articles',
             'category_id' => 'required',
-            'image' => 'image|file|max:1024',
+            'image' => 'image|file|max:4096',
             'body' => 'required'
         ]);
 
@@ -67,7 +67,7 @@ class DashboardArticleController extends Controller
 
         // Validasi 
         $validatedData['user_id'] = auth()->user()->id;
-        $validatedData['excerpt'] = Str::limit(strip_tags($request->body), 200);
+        $validatedData['excerpt'] = Str::limit(strip_tags($request->body), 100);
 
         Article::create($validatedData);
 
@@ -119,7 +119,7 @@ class DashboardArticleController extends Controller
         $rules = [
             'title' => 'required|max:255',
             'category_id' => 'required',
-            'image' => 'image|file|max:1024',
+            'image' => 'image|file|max:4096',
             'body' => 'required'
         ];
         
@@ -138,7 +138,7 @@ class DashboardArticleController extends Controller
         }
 
         $validatedData['user_id'] = auth()->user()->id;
-        $validatedData['excerpt'] = Str::limit(strip_tags($request->body), 200);
+        $validatedData['excerpt'] = Str::limit(strip_tags($request->body), 100);
 
         Article::where('id', $article->id) 
             ->update($validatedData);
