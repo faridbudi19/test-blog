@@ -5,7 +5,7 @@
 <div class="row justify-content-center">
     <div class="col-lg-5">
         <main class="form-registration">
-            <h1 class="h3 mb-3 fw-normal text-center">Form Regitester</h1>
+            <h1 class="h3 mb-3 fw-normal text-center">Form Register</h1>
             <form action="/register" method="post">
                 @csrf
                 <div class="form-floating mb-2">
